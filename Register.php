@@ -19,8 +19,7 @@ class Register{
 		return [
 			'googlemaps' => [
 								'label' => 'Google Maps',
-								//'url' => 'admin/plugin/run/googlemaps',
-								'url' => plugin_link('googlemaps'),
+								#'url' => plugin_link('google-maps'), //Here you can overwrite the default url
 								/*'menu' => 'right',
 								'submenu_of' => 'shutdown'*/
 							 ],
