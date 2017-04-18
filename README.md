@@ -1,12 +1,12 @@
 # GoogleMaps Plugin 
-###for HorizontCMS
+### for HorizontCMS
 
 <hr>
 
 
-##Install
+## Install
 
 Download and copy into /plugins/googlemaps folder. On the admin panel go to Themes&Apps/Plugins. Click on install and activate.
 
-##Shortcode
-```{[googlemaps]}```
+## Shortcode
+``` {[googlemaps]} ```
