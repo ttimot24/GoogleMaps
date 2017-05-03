@@ -1,6 +1,6 @@
 <?php
 
-namespace Plugins\GoogleMaps\database\seeds;
+namespace Plugin\GoogleMaps\Database\Seeds;
 
 use Illuminate\Database\Seeder;
 

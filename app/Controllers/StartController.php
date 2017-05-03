@@ -9,11 +9,11 @@ class StartController extends Controller{
 
 	public function index(){
 
-		if(file_exists("plugins/googlemaps/resources/map_styles")){
+		if(file_exists("plugins/GoogleMaps/resources/map_styles")){
 
 			$custom_styles = [];
 
-			foreach(array_slice(scandir("plugins/googlemaps/resources/map_styles"),2) as $file){
+			foreach(array_slice(scandir("plugins/GoogleMaps/resources/map_styles"),2) as $file){
 				$custom_styles[] = basename($file,'.json');
 			}
 
