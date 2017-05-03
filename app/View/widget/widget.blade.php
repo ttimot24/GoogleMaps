@@ -11,7 +11,7 @@
         });
 
         @if(!in_array($type,['roadmap','satellite','hybrid','terrain'])) 
-          map.mapTypes.set('{{$type}}', new google.maps.StyledMapType(JSON.parse('<?= str_replace(PHP_EOL,"",file_get_contents("plugins/googlemaps/resources/map_styles/".$type.".json")) ?>')));
+          map.mapTypes.set('{{$type}}', new google.maps.StyledMapType(JSON.parse('<?= str_replace(PHP_EOL,"",file_get_contents("plugins/GoogleMaps/resources/map_styles/".$type.".json")) ?>')));
         @endif
 
         @foreach($locations as $location)
