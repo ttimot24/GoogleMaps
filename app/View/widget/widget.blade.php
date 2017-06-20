@@ -5,8 +5,8 @@
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: {{$zoom}},
           mapTypeId: '{{$type}}',
-          @if(isset($locations[0]))
-          center: {lat: {{ $locations[0]->latitude }}, lng: {{ $locations[0]->longitude }} }
+          @if($locations->isNotEmpty())
+          center: {lat: {{ $locations->first()->latitude }}, lng: {{ $locations->first()->longitude }} }
           @endif
         });
 

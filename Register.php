@@ -4,6 +4,7 @@ namespace Plugin\GoogleMaps;
 
 class Register{
 
+	
 
 	public static function routeOptions(){
 		return [
@@ -31,7 +32,7 @@ class Register{
 
 		return [
 				'Illuminate\Auth\Events\Login' => [
-					'\Plugin\GoogleMaps\App\Listeners\ExampleEventListener',
+				//	'\Plugin\GoogleMaps\App\Listeners\ExampleEventListener',
 				]
 			];
 
