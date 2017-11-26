@@ -10,7 +10,7 @@ class Register{
 		return [
 				'middleware' => ['web'],
 				'namespace' => '\Plugin\GoogleMaps\App',
-				'prefix' => 'gmaps',
+				//'prefix' => 'gmaps',
 		];
 	}
 
@@ -55,6 +55,10 @@ class Register{
 		//return "Try mee too!";
 	} 
 
+
+	public static function injectJs(){
+		return [];
+	}
 
 
 

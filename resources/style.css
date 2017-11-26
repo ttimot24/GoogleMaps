@@ -1,0 +1,12 @@
+#hidden-center{
+    visibility:hidden;
+}
+
+tr:hover #hidden-center{
+    visibility:visible;
+    color:grey;
+}
+
+tr #hidden-center a:hover{
+  color:black;
+}

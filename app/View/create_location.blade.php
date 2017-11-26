@@ -1,4 +1,4 @@
-<form action='{{plugin_link("googlemaps/start/create-location")}}' method='POST'>
+<form action='{{plugin_link("google-maps/start/create-location")}}' method='POST'>
   {{csrf_field()}}
   <div class="form-group">
     <label for="exampleInputEmail1">{{trans('plugin::table.th_location_name')}}</label>

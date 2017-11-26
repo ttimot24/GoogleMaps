@@ -1,4 +1,4 @@
-<form action='{{plugin_link("googlemaps/start/save-settings")}}' method='POST'>
+<form action='{{plugin_link("google-maps/start/save-settings")}}' method='POST'>
   {{csrf_field()}}
   <div class="form-group">
     <label for="gmaps_api_key">API Key</label>

@@ -1,6 +1,9 @@
 @extends('layout')
 
 @section('content')
+
+<link rel="stylesheet" type="text/css" href="plugins/GoogleMaps/resources/style.css">
+
 <section class='container'>
 
 <div class='row'>
