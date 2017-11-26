@@ -26,6 +26,7 @@ class StartController extends Controller{
 				'all_location' => \Plugin\GoogleMaps\App\Model\Location::paginate(10),
 				'map_types' => array_merge(['roadmap','satellite','hybrid','terrain'],$custom_styles),
 				'animations' => ['NONE','BOUNCE','DROP'],
+				'map_center' => \Plugin\GoogleMaps\App\Model\Location::getCenter(),
 			]);
 	}
 
@@ -68,6 +69,15 @@ class StartController extends Controller{
         return $this->redirectToSelf()->withMessage(['success' => trans('message.successfully_saved_settings')]);
 	}
 
+
+	public function setCenter($location_id){
+
+		if(\Settings::where('setting', 'gmaps_center')->update(['value' => $location_id])){
+			 return $this->redirectToSelf()->withMessage(['success' => trans('plugin::messages.successfully_set_center')]);
+		}else{
+			return $this->redirectToSelf()->withMessage(['danger' => trans('message.something_went_wrong')]);
+		}
+	}
 
 
 }

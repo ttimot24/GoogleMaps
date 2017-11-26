@@ -37,7 +37,7 @@ class PluginSeeder extends Seeder
         ]);
 
         DB::table('settings')->insert([
-            'setting' => 'gmaps_centre',
+            'setting' => 'gmaps_center',
             'value' => NULL,
             'more' => '1',
         ]);

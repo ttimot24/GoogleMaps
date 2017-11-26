@@ -49,6 +49,7 @@ class Register{
 										'zoom' => \Settings::get('gmaps_zoom'),
 										'type' => \Settings::get('gmaps_type'),
 										'animation' => \Settings::get('gmaps_animation'),
+										'map_center' => \Plugin\GoogleMaps\App\Model\Location::getCenter(),
 										]);
 
 

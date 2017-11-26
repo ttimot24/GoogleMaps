@@ -11,7 +11,15 @@
     <tbody>
     	@foreach($all_location as $location)
 		      <tr>
-		      	<td>{{ $location->id }} <a href='admin/#' data-toggle='modal' data-target='.mo-{{ $location->id }}'><i class="fa fa-map-marker" id='hidden-center' aria-hidden="true" style='font-size:14px;'></i></a></td>
+		      	<td>{{ $location->id }} 
+
+              @if($location->is($map_center))
+                <i class="fa fa-map-marker" aria-hidden="true" style='font-size:16px;'></i>
+              @else
+                <a href='admin/#' data-toggle='modal' data-target='.mo-{{ $location->id }}'><i class="fa fa-map-marker" id='hidden-center' aria-hidden="true" style='font-size:16px;'></i></a>
+              @endif
+
+            </td>
 		        <td>{{ $location->location_name }}</td>
 		        <td>{{ $location->latitude }}</td>
 		        <td>{{ $location->longitude }}</td>
@@ -24,6 +32,27 @@
                 </center>
             </td>
 		      </tr> 
+
+
+          <div class="modal mo-{{ $location->id }}" id="mo-{{ $location->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header modal-header-warning">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">{{ trans("plugin::common.change_center") }}</h4>
+              </div>
+              <div class="modal-body">
+                {{ trans("plugin::common.are_you_sure_center",["location" => $location->location_name]) }}
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('actions.close') }}</button>
+                <a href="{{plugin_link('google-maps/start/set-center',$location->id)}}" type="button" class="btn btn-primary">{{ trans('actions.set') }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
       @endforeach
 
     </tbody>
