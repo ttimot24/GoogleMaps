@@ -61,14 +61,6 @@ class StartController extends Controller{
 	}
 
 
-	public function saveSettings(){
-		foreach($this->request->all() as $key => $value){
-            \Settings::where('setting', '=', $key)->update(['value' => $value]);
-        }
-
-        return $this->redirectToSelf()->withMessage(['success' => trans('message.successfully_saved_settings')]);
-	}
-
 
 	public function setCenter($location_id){
 
