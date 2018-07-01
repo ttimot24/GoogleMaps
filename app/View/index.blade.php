@@ -19,6 +19,9 @@
     <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">{{trans('plugin::nav.home')}}</a></li>
     <li role="presentation"><a href="#new_location" aria-controls="nre_location" role="tab" data-toggle="tab">{{trans('plugin::nav.add_location')}}</a></li>
     <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">{{trans('plugin::nav.settings')}}</a></li>
+
+    <li role="presentation" class="pull-right"><a href="#docs" aria-controls="docs" role="tab" data-toggle="tab">{{trans('plugin::nav.docs')}}</a></li>
+  
   </ul>
   </div>
 
@@ -27,6 +30,7 @@
     <div role="tabpanel" class="tab-pane active" id="home">@include('plugin::list')</div>
     <div role="tabpanel" class="tab-pane" id="new_location">@include('plugin::create_location')</div>
     <div role="tabpanel" class="tab-pane" id="settings">@include('plugin::settings')</div>
+    <div role="tabpanel" class="tab-pane" id="docs">@include('plugin::docs')</div>
   </div>
 
 
