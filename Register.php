@@ -58,7 +58,9 @@ class Register{
 
 
 	public static function injectJs(){
-		return [];
+		return [
+			//'main.js'
+		];
 	}
 
 

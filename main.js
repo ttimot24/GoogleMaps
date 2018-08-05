@@ -1,0 +1,1 @@
+alert("GoogleMaps plugin configured!");

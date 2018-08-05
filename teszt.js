@@ -1,1 +1,0 @@
-alert("PLugin teszt");
