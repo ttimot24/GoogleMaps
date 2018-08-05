@@ -1,0 +1,58 @@
+#------------------------------
+#   | Pipeline for GitLab |
+#------------------------------
+# Plugins
+# version: 0.3
+# author: Timot Tarjani
+# website: github.com/ttimot24
+#------------------------------
+
+image: php:7.1
+
+variables:
+  CI_ARTIFACT_NAME: ${CI_PROJECT_NAME}-dist.zip
+
+stages:
+  - test
+  - build
+  - release
+
+
+test:
+  stage: test
+  variables:
+  #  CI_PROJECT_DIR: ./plugins/${CI_PROJECT_NAME}
+  script: 
+    - echo "[TEST] Running tests"
+    - echo "[TEST] Domain ${CI_DOMAIN}"
+  #  - git fetch https://github.com/ttimot24/HorizontCMS.git
+
+  
+build:  
+  stage: build
+  script:
+    - echo "[RELEASE] Packaging the release"
+    - apt-get update -yqq
+    - apt-get install zip unzip -yqq
+    - zip -r ${CI_ARTIFACT_NAME} ./ -x *.git*
+  artifacts:
+    paths:
+    - ${CI_ARTIFACT_NAME}
+    expire_in: 2 weeks
+
+release:
+  stage: release
+  environment:
+    name: LiveRepo
+    url: http://${CI_DOMAIN}
+  dependencies: []
+  before_script:
+    - if [[ -z ${FTP_USERNAME} || -z ${FTP_PASSWORD} || -z ${FTP_HOST} || -z ${FTP_DIR} ]]; then echo "[RELEASE] FTP variables are not properly set!" ; exit 1; fi;
+  script:
+    - apt-get update -yqq
+    - apt-get install -yqq lftp;
+    - echo "[RELEASE] Uploading artifact"
+    - lftp -c "set ftp:ssl-allow no; open -u ${FTP_USERNAME},${FTP_PASSWORD} ${FTP_HOST}; mirror ./ ${FTP_DIR} -Rnev --ignore-time --parallel=4 --exclude-glob .git* --exclude .git/; quit;"
+  when: manual
+  only:
+  - master
