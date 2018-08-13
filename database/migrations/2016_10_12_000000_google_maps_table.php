@@ -10,15 +10,22 @@ class GoogleMapsTable extends Migration{
      *
      * @return void
      */
+
+    private $table_name = 'google_maps';
+
     public function up()
     {
-        Schema::create('google_maps', function (Blueprint $table) {
+
+        if (Schema::hasTable($this->table_name)) { return; }
+
+        Schema::create($this->table_name, function (Blueprint $table) {
             $table->increments('id');
             $table->string('location_name');
             $table->string('latitude');
             $table->string('longitude');
             $table->integer('active');
         });
+        
     }
 
     /**
@@ -28,6 +35,6 @@ class GoogleMapsTable extends Migration{
      */
     public function down()
     {
-        Schema::drop('google_maps');
+        Schema::dropIfExists($this->table_name);
     }
 }

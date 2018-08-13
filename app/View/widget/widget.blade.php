@@ -22,6 +22,8 @@
           animation: google.maps.Animation.{{$animation}},
           @endif
 
+         // icon: "sample.png",
+
           map: map
         });
 

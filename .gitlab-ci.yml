@@ -45,14 +45,13 @@ release:
   environment:
     name: LiveRepo
     url: http://${CI_DOMAIN}
-  dependencies: []
   before_script:
     - if [[ -z ${FTP_USERNAME} || -z ${FTP_PASSWORD} || -z ${FTP_HOST} || -z ${FTP_DIR} ]]; then echo "[RELEASE] FTP variables are not properly set!" ; exit 1; fi;
   script:
     - apt-get update -yqq
     - apt-get install -yqq lftp;
     - echo "[RELEASE] Uploading artifact"
-    - lftp -c "set ftp:ssl-allow no; open -u ${FTP_USERNAME},${FTP_PASSWORD} ${FTP_HOST}; mirror ./ ${FTP_DIR} -Rnev --ignore-time --parallel=4 --exclude-glob .git* --exclude .git/; quit;"
+    - lftp -c "set ftp:ssl-allow no; open -u ${FTP_USERNAME},${FTP_PASSWORD} ${FTP_HOST}; put ./${CI_ARTIFACT_NAME} ${FTP_DIR} -Rnev --ignore-time --parallel=4 --exclude-glob .git* --exclude .git/; quit;"
   when: manual
   only:
   - master
