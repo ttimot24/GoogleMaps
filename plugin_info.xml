@@ -3,12 +3,12 @@
 <application>
 	<name>Google Maps</name>
 	<version>3.9</version>
+	<release-date>2018.08.13</release-date>
 	<description>Styleable Google Maps application for HorizontCMS</description>
 	<author>Timot Tarjani</author>
 	<author_url>http://www.maps.google.com</author_url>
-
+	
 	<requires>
 		<core>1.0.0-alpha.5</core>
 	</requires>
-
 </application>

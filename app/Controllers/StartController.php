@@ -19,7 +19,7 @@ class StartController extends Controller{
 
 		}
 
-
+		$self = new \App\Model\Plugin('GoogleMaps');
 
 		$this->view->title('Google Maps');
 		return $this->view->render("plugin::index",[
@@ -27,6 +27,7 @@ class StartController extends Controller{
 				'map_types' => array_merge(['roadmap','satellite','hybrid','terrain'],$custom_styles),
 				'animations' => ['NONE','BOUNCE','DROP'],
 				'map_center' => \Plugin\GoogleMaps\App\Model\Location::getCenter(),
+				'self' => $self,
 			]);
 	}
 

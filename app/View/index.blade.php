@@ -7,7 +7,7 @@
 <section class='container'>
 
 <div class='row'>
-<h1>Google Maps</h1><br>
+<h1>{{$self->getName()}} <small>v{{$self->getInfo('version','')}}</small></h1><br>
 </div>
 
 
