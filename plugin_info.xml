@@ -9,6 +9,15 @@
 	<author_url>http://www.maps.google.com</author_url>
 	
 	<requires>
+		<php>5.4</php>
 		<core>1.0.0-alpha.5</core>
 	</requires>
+	<optional>
+		<plugins>
+			<plugin>
+				<name>CredentialStore</name>
+				<version>1.0</version>
+			</plugin>
+		</plugins>
+	</optional>
 </application>
