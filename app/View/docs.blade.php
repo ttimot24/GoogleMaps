@@ -5,4 +5,8 @@
   <li>Copy and paste the given API key into settings</li>
   <li>Add locations to the map</li>
 </ul>
+<br>
+<ul>
+	<li>For better user experience install <a href="admin/plugin/onlinestore">CredentialStore</a> plugin</li>
+</ul>
 </div>

@@ -28,6 +28,7 @@ class StartController extends Controller{
 				'animations' => ['NONE','BOUNCE','DROP'],
 				'map_center' => \Plugin\GoogleMaps\App\Model\Location::getCenter(),
 				'self' => $self,
+				'credential_store' => (new \App\Model\Plugin("CredentialStore"))->isActive()? \Plugin\CredentialStore\App\Model\TokenCredential::all() : false,
 			]);
 	}
 
