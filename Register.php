@@ -65,13 +65,17 @@ class Register{
 	} 
 
 
-	public static function injectJs(){
+	public static function injectAdminJs(){
 		return [
 			//'main.js'
 		];
 	}
 
-
+	public static function injectWebsiteJs(){
+		return [
+			//'main.js'
+		];
+	}
 
 	public static function onInstall(){
 
