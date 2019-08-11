@@ -1,4 +1,4 @@
-<form action='admin/settings/save-settings' method='POST'>
+<form action='{{admin_link("settings-save")}}' method='POST'>
   {{csrf_field()}}
 
 
