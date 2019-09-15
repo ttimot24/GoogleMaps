@@ -37,7 +37,9 @@
 </div>
 
 <div class='col-md-4' style='text-align:right;'>
-	<img src='plugins/GoogleMaps/resources/image/gml.png'>
+  <div id="map_preview">
+      @include('plugin::widget.widget')
+  </div>
 </div>
 
 

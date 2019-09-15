@@ -29,6 +29,13 @@ class StartController extends Controller{
 				'map_center' => \Plugin\GoogleMaps\App\Model\Location::getCenter(),
 				'self' => $self,
 				'credential_store' => (new \App\Model\Plugin("CredentialStore"))->isActive()? \Plugin\CredentialStore\App\Model\TokenCredential::all() : false,
+				'locations' => \Plugin\GoogleMaps\App\Model\Location::all(),
+				'api_key' => str_contains(\Settings::get('gmaps_api_key'),'credsId:') && (new \App\Model\Plugin('CredentialStore'))->isActive()? 
+										TokenCredential::resolve(\Settings::get('gmaps_api_key'))->token: 
+										\Settings::get('gmaps_api_key'),
+				'zoom' => \Settings::get('gmaps_zoom'),
+				'type' => \Settings::get('gmaps_type'),
+				'animation' => \Settings::get('gmaps_animation'),
 			]);
 	}
 

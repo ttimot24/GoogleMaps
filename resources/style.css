@@ -10,3 +10,9 @@ tr:hover #hidden-center{
 tr #hidden-center a:hover{
   color:black;
 }
+
+#map_preview{
+  background-image: url(image/gml.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
