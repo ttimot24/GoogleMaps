@@ -27,7 +27,7 @@
                 <center>
                  <div class="btn-group" role="group">
                      <a type="button" class="btn btn-warning btn-sm" style='min-width:70px;' disabled>{{trans('actions.edit')}}</a>
-                     <a type="button" href="{{plugin_link('google-maps/start/delete-location',$location->id)}}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                     <a type="button" href="{{plugin_link('google-maps/start/destroy',$location->id)}}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                  </div>
                 </center>
             </td>

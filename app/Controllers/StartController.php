@@ -40,7 +40,7 @@ class StartController extends Controller{
 	}
 
 
-	public function createLocation(){
+	public function store(){
 
 		$location = new \Plugin\GoogleMaps\App\Model\Location();
 		$location->location_name = $this->request->input('location_name');
@@ -57,7 +57,7 @@ class StartController extends Controller{
 	}
 
 
-	public function deleteLocation($id){
+	public function destroy($id){
 
 		$location = \Plugin\GoogleMaps\App\Model\Location::find($id);
 

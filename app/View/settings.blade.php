@@ -1,5 +1,5 @@
-<form action='{{admin_link("settings-save")}}' method='POST'>
-  {{csrf_field()}}
+<form action='{{ route('settings.store') }}' method='POST'>
+  @csrf
 
 
   <div class="form-group col-md-12">
@@ -9,7 +9,7 @@
  	@else
     <label for="gmaps_api_key">API Key from <a href="{{plugin_link('credential-store')}}">CredentialStore</a></label>
  	  <select name='gmaps_api_key' id="gmaps_api_key" class="form-control" >
-        @foreach($credential_store as $credential){
+        @foreach($credential_store as $credential)
 
             <option value="{{ $credential->getCredentialLink()}}" {{ $credential->getCredentialLink()==\Settings::get('gmaps_api_key') ? "selected":"" }} >{{ $credential->name }}</option>
 
