@@ -1,4 +1,4 @@
-<form action='{{plugin_link("google-maps/start/store")}}' method='POST'>
+<form action='{{route('plugin.googlemaps.start.store')}}' method='POST'>
   @csrf
   <div class="form-group">
     <label for="exampleInputEmail1">{{trans('plugin::table.th_location_name')}}</label>
