@@ -23,6 +23,7 @@ class GoogleMapsTable extends Migration{
             $table->string('location_name');
             $table->string('latitude');
             $table->string('longitude');
+            $table->timestamps();
             $table->integer('active');
         });
         

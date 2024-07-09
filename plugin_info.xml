@@ -2,15 +2,15 @@
 
 <application>
 	<name>Google Maps</name>
-	<version>4.2</version>
+	<version>5.0</version>
 	<release-date>2018.08.13</release-date>
 	<description>Styleable Google Maps application for HorizontCMS</description>
 	<author>Timot Tarjani</author>
-	<author_url>http://www.maps.google.com</author_url>
+	<author_url>https://github.com/ttimot24</author_url>
 	
 	<requires>
-		<php>5.4</php>
-		<core>1.0.0-alpha.5</core>
+		<php>8.0</php>
+		<core>1.1.0</core>
 	</requires>
 	<optional>
 		<plugins>
