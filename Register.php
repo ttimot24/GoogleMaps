@@ -2,14 +2,13 @@
 
 namespace Plugin\GoogleMaps;
 
-
+use \App\Libs\PluginInterface ;
 use \Plugin\CredentialStore\App\Model\TokenCredential;
 
-class Register{
+class Register implements PluginInterface {
 
 	
-
-	public static function routeOptions(){
+	public function webRouteOptions(): array {
 		return [
 				'middleware' => ['web'],
 				'namespace' => '\Plugin\GoogleMaps\App',
@@ -18,7 +17,19 @@ class Register{
 	}
 
 
-	public static function navigation(){
+	public function apiRouteOptions(): array
+	{
+		return [
+			'middleware' => ['api'],
+			'namespace' => '\Plugin\SzamlazzHu\App',
+			'prefix' => 'szamlazz-hu',
+		];
+	}
+
+
+
+
+	public function navigation(): array {
 		
 		return [
 			'googlemaps' => [
@@ -31,7 +42,7 @@ class Register{
 
 	}
 
-	public static function eventHooks(){
+	public function eventHooks(): array {
 
 		return [
 				'eloquent.deleting: App\Model\Plugin' => [
@@ -45,7 +56,7 @@ class Register{
 	}
 	
 
-	public static function widget(){
+	public function widget(): string {
 		
 		
 
@@ -65,21 +76,36 @@ class Register{
 	} 
 
 
-	public static function injectAdminJs(){
+	public function injectAdminJs(): array {
 		return [
 			//'main.js'
 		];
 	}
 
-	public static function injectWebsiteJs(){
+	public function injectWebsiteJs(): array {
 		return [
 			//'main.js'
 		];
 	}
 
-	public static function onInstall(){
 
+	public function onInstall(): void {
+		
 	}
+
+	public function addProviders(): array {
+		return [
+		];
+	}
+
+	public function addMiddlewares(): array {
+		return [];
+	}
+
+	public function cliCommands(): array {
+		return [];
+	}
+
 
 
 }
