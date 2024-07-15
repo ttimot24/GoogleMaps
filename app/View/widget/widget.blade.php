@@ -1,6 +1,6 @@
+@if($locations->isNotEmpty())
 <div id="map" style="height: 400px;width: 100%;"></div>
 
-@section('head')
     <script>
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -28,6 +28,15 @@
           map: map
         });
 
+        var infowindow = new google.maps.InfoWindow({
+                                            content: '{{ $location->location_name }}'
+                                        });
+
+        marker.addListener('click', function() {
+              infowindow.open(map, marker);
+        });
+
+
         @endforeach
 
 
@@ -36,4 +45,4 @@
 
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key={{$api_key}}&callback=initMap"></script>
-@endsection
+@endif
