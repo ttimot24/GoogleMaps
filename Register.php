@@ -63,7 +63,7 @@ class Register implements PluginInterface
 
 
 
-		return view('plugin::widget.widget', [
+		return view('googlemaps::widget.widget', [
 			'locations' => \Plugin\GoogleMaps\App\Model\Location::all(),
 			'api_key' => str_contains(\Settings::get('gmaps_api_key'), 'credsId:') && (new \App\Model\Plugin('CredentialStore'))->isActive() ?
 				TokenCredential::resolve(\Settings::get('gmaps_api_key'))->token :
