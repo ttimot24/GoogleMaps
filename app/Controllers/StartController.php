@@ -2,8 +2,7 @@
 
 namespace Plugin\GoogleMaps\App\Controllers;
 
-use Illuminate\Http\Request;
-use App\Libs\Controller;
+use Illuminate\Routing\Controller;
 
 class StartController extends Controller
 {
@@ -22,8 +21,7 @@ class StartController extends Controller
 
 		$self = new \App\Model\Plugin('GoogleMaps');
 
-		$this->view->title('Google Maps');
-		return $this->view->render("plugin::index", [
+		return view("plugin::index", [
 			'all_location' => \Plugin\GoogleMaps\App\Model\Location::paginate(10),
 			'map_types' => array_merge(['roadmap', 'satellite', 'hybrid', 'terrain'], $custom_styles),
 			'animations' => ['NONE', 'BOUNCE', 'DROP'],
@@ -48,9 +46,9 @@ class StartController extends Controller
 		$location->active = 1;
 
 		if ($location->save()) {
-			return $this->redirectToSelf()->withMessage(['success' => trans('plugin::messages.successfully_added_location')]);
+			return redirect()->back()->withMessage(['success' => trans('plugin::messages.successfully_added_location')]);
 		} else {
-			return $this->redirectToSelf()->withMessage(['danger' => trans('message.something_went_wrong')]);
+			return redirect()->back()->withMessage(['danger' => trans('message.something_went_wrong')]);
 		}
 	}
 
@@ -61,9 +59,9 @@ class StartController extends Controller
 		$location = \Plugin\GoogleMaps\App\Model\Location::find($id);
 
 		if ($location->delete()) {
-			return $this->redirectToSelf()->withMessage(['success' => trans('plugin::messages.successfully_deleted_location')]);
+			return redirect()->back()->withMessage(['success' => trans('plugin::messages.successfully_deleted_location')]);
 		} else {
-			return $this->redirectToSelf()->withMessage(['danger' => trans('message.something_went_wrong')]);
+			return redirect()->back()->withMessage(['danger' => trans('message.something_went_wrong')]);
 		}
 	}
 
@@ -73,9 +71,9 @@ class StartController extends Controller
 	{
 
 		if (\Settings::where('setting', 'gmaps_center')->update(['value' => $location_id])) {
-			return $this->redirectToSelf()->withMessage(['success' => trans('plugin::messages.successfully_set_center')]);
+			return redirect()->back()->withMessage(['success' => trans('plugin::messages.successfully_set_center')]);
 		} else {
-			return $this->redirectToSelf()->withMessage(['danger' => trans('message.something_went_wrong')]);
+			return redirect()->back()->withMessage(['danger' => trans('message.something_went_wrong')]);
 		}
 	}
 }

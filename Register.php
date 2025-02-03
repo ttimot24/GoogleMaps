@@ -48,12 +48,7 @@ class Register implements PluginInterface
 	{
 
 		return [
-			'eloquent.deleting: App\Model\Plugin' => [
-				'\Plugin\GoogleMaps\App\Listeners\CredentialStoreDeleteEventListener',
-			],
-			'eloquent.saving: App\Model\Plugin' => [
-				'\Plugin\GoogleMaps\App\Listeners\CredentialStoreInstallEventListener',
-			]
+
 		];
 	}
 
@@ -61,13 +56,9 @@ class Register implements PluginInterface
 	public function widget(): string
 	{
 
-
-
 		return view('googlemaps::widget.widget', [
 			'locations' => \Plugin\GoogleMaps\App\Model\Location::all(),
-			'api_key' => str_contains(\Settings::get('gmaps_api_key'), 'credsId:') && (new \App\Model\Plugin('CredentialStore'))->isActive() ?
-				TokenCredential::resolve(\Settings::get('gmaps_api_key'))->token :
-				\Settings::get('gmaps_api_key'),
+			'api_key' => \Settings::get('gmaps_api_key'),
 			'zoom' => \Settings::get('gmaps_zoom'),
 			'type' => \Settings::get('gmaps_type'),
 			'animation' => \Settings::get('gmaps_animation'),
