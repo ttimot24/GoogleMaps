@@ -108,6 +108,11 @@ class Register implements PluginInterface
 		return [];
 	}
 
+	public function addAliases(): array
+	{
+		return [];
+	}
+
 	public function cliCommands(): array
 	{
 		return [];
