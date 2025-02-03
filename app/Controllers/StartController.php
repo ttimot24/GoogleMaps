@@ -2,6 +2,7 @@
 
 namespace Plugin\GoogleMaps\App\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 class StartController extends Controller
@@ -39,10 +40,10 @@ class StartController extends Controller
 	}
 
 
-	public function store()
+	public function store(Request $request)
 	{
 
-		$location = new \Plugin\GoogleMaps\App\Model\Location($this->request->all());
+		$location = new \Plugin\GoogleMaps\App\Model\Location($request->all());
 		$location->active = 1;
 
 		if ($location->save()) {
