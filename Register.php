@@ -3,7 +3,6 @@
 namespace Plugin\GoogleMaps;
 
 use \App\Libs\PluginInterface;
-use \Plugin\CredentialStore\App\Model\TokenCredential;
 
 class Register implements PluginInterface
 {
@@ -23,8 +22,8 @@ class Register implements PluginInterface
 	{
 		return [
 			'middleware' => ['api'],
-			'namespace' => '\Plugin\SzamlazzHu\App',
-			'prefix' => 'szamlazz-hu',
+			'namespace' => '\Plugin\GoogleMaps\App',
+			'prefix' => '',
 		];
 	}
 
