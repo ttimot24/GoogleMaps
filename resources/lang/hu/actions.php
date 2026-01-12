@@ -1,5 +1,5 @@
 <?php
 
-return[
-	'save' => 'Mentés',
+return [
+    'save' => 'Mentés',
 ];

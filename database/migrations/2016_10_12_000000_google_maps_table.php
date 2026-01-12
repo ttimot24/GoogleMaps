@@ -1,22 +1,24 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class GoogleMapsTable extends Migration{
+class GoogleMapsTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-
     private $table_name = 'google_maps';
 
     public function up()
     {
 
-        if (Schema::hasTable($this->table_name)) { return; }
+        if (Schema::hasTable($this->table_name)) {
+            return;
+        }
 
         Schema::create($this->table_name, function (Blueprint $table) {
             $table->increments('id');
@@ -26,7 +28,7 @@ class GoogleMapsTable extends Migration{
             $table->timestamps();
             $table->integer('active');
         });
-        
+
     }
 
     /**

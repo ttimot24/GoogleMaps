@@ -2,109 +2,97 @@
 
 namespace Plugin\GoogleMaps;
 
-use \App\Libs\PluginInterface;
+use App\Libs\PluginInterface;
 
 class Register implements PluginInterface
 {
+    public function webRouteOptions(): array
+    {
+        return [
+            'middleware' => ['web'],
+            'namespace' => '\Plugin\GoogleMaps\App',
+            // 'prefix' => 'gmaps',
+        ];
+    }
 
+    public function apiRouteOptions(): array
+    {
+        return [
+            'middleware' => ['api'],
+            'namespace' => '\Plugin\GoogleMaps\App',
+            'prefix' => '',
+        ];
+    }
 
-	public function webRouteOptions(): array
-	{
-		return [
-			'middleware' => ['web'],
-			'namespace' => '\Plugin\GoogleMaps\App',
-			//'prefix' => 'gmaps',
-		];
-	}
+    public function navigation(): array
+    {
 
+        return [
+            'googlemaps' => [
+                'label' => 'Google Maps',
+                // 'url' => plugin_link('google-maps'), //Here you can overwrite the default url
+                /*'menu' => 'right',
+                                'submenu_of' => 'shutdown'*/
+            ],
+        ];
+    }
 
-	public function apiRouteOptions(): array
-	{
-		return [
-			'middleware' => ['api'],
-			'namespace' => '\Plugin\GoogleMaps\App',
-			'prefix' => '',
-		];
-	}
+    public function eventHooks(): array
+    {
 
+        return [
 
+        ];
+    }
 
+    public function widget(): string
+    {
 
-	public function navigation(): array
-	{
+        return view('googlemaps::widget.widget', [
+            'locations' => \Plugin\GoogleMaps\App\Model\Location::all(),
+            'api_key' => \Settings::get('gmaps_api_key'),
+            'zoom' => \Settings::get('gmaps_zoom'),
+            'type' => \Settings::get('gmaps_type'),
+            'animation' => \Settings::get('gmaps_animation'),
+            'map_center' => \Plugin\GoogleMaps\App\Model\Location::getCenter(),
+        ])->render();
 
-		return [
-			'googlemaps' => [
-				'label' => 'Google Maps',
-				#'url' => plugin_link('google-maps'), //Here you can overwrite the default url
-				/*'menu' => 'right',
-								'submenu_of' => 'shutdown'*/
-			],
-		];
-	}
+        // return "Try mee too!";
+    }
 
-	public function eventHooks(): array
-	{
+    public function injectAdminJs(): array
+    {
+        return [
+            // 'main.js'
+        ];
+    }
 
-		return [
+    public function injectWebsiteJs(): array
+    {
+        return [
+            // 'main.js'
+        ];
+    }
 
-		];
-	}
+    public function onInstall(): void {}
 
+    public function addProviders(): array
+    {
+        return [];
+    }
 
-	public function widget(): string
-	{
+    public function addMiddlewares(): array
+    {
+        return [];
+    }
 
-		return view('googlemaps::widget.widget', [
-			'locations' => \Plugin\GoogleMaps\App\Model\Location::all(),
-			'api_key' => \Settings::get('gmaps_api_key'),
-			'zoom' => \Settings::get('gmaps_zoom'),
-			'type' => \Settings::get('gmaps_type'),
-			'animation' => \Settings::get('gmaps_animation'),
-			'map_center' => \Plugin\GoogleMaps\App\Model\Location::getCenter(),
-		])->render();
+    public function addAliases(): array
+    {
+        return [];
+    }
 
-
-		//return "Try mee too!";
-	}
-
-
-	public function injectAdminJs(): array
-	{
-		return [
-			//'main.js'
-		];
-	}
-
-	public function injectWebsiteJs(): array
-	{
-		return [
-			//'main.js'
-		];
-	}
-
-
-	public function onInstall(): void
-	{
-	}
-
-	public function addProviders(): array
-	{
-		return [];
-	}
-
-	public function addMiddlewares(): array
-	{
-		return [];
-	}
-
-	public function addAliases(): array
-	{
-		return [];
-	}
-
-	public function cliCommands(): array
-	{
-		return [];
-	}
+    public function cliCommands(): array
+    {
+        return [];
+    }
 }
