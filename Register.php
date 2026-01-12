@@ -2,7 +2,7 @@
 
 namespace Plugin\GoogleMaps;
 
-use App\Libs\PluginInterface;
+use App\Interfaces\PluginInterface;
 
 class Register implements PluginInterface
 {
