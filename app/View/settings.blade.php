@@ -28,7 +28,7 @@
   <div class="form-group col-md-4">
     <label for="gmap_type">Map type</label>
     <select name='gmaps_type' id="gmap_type" class="form-control" >
-    	@foreach($map_types as $type){
+    	@foreach($map_types as $type)
 
           <option value="{{ $type }}" {{ $type==\Settings::get('gmaps_type') ? "selected":"" }} >{{ $type }}</option>
 
@@ -39,7 +39,7 @@
   <div class="form-group col-md-4">
     <label for="gmap_type">Animation</label>
     <select name='gmaps_animation' id="gmap_type" class="form-control" >
-      @foreach($animations as $animation){
+      @foreach($animations as $animation)
 
           <option value="{{ $animation }}" {{ $animation==\Settings::get('gmaps_animation') ? "selected":"" }} >{{ $animation }}</option>
 
