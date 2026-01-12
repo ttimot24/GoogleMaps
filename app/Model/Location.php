@@ -10,12 +10,12 @@ class Location extends Model
 
     public $table = 'google_maps';
 
-    public static function getCenter()
+    public static function getCenter(): Location | null
     {
 
-        if ($center = \Plugin\GoogleMaps\App\Model\Location::find(\Settings::get('gmaps_center'))) {
+        if ($center = Location::find(\Settings::get('gmaps_center'))) {
             return $center;
-        } elseif ($center = \Plugin\GoogleMaps\App\Model\Location::first()) {
+        } elseif ($center = Location::first()) {
             return $center;
         }
 
